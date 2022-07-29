@@ -1,0 +1,30 @@
+function docker-purge() {
+  echo "Stopping any containers that may be running"
+  for container in $(docker ps | awk 'NR!=1 {print $1}'); do
+    docker stop $container
+  done
+
+  echo "Running docker system prune -a -f --volumes"
+  docker system prune -a -f --volumes
+}
+
+function docker-stop() {
+  for container in $(docker ps | awk 'NR>1 {print $1}'); do
+    docker stop $container
+  done
+}
+
+function port() {
+  lsof -i -P | grep LISTEN | grep ":$1"
+}
+
+function nd() {
+    mkdir -p $1 && cd $1
+}
+
+function fix-spaces-in-names() {
+  for f in ./*; do
+    mv $f $(echo $f | tr '[:upper:]' '[:lower:]' | tr -s '[:blank:]' '-')
+  done
+}
+
