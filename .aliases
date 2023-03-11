@@ -5,10 +5,15 @@ alias dc=docker-compose
 alias kk=kubectl
 alias rrf="rm -r -f"
 alias gl="git log --oneline --graph -50"
+alias gs="git status"
 alias uuid='uuidgen | tee >(tr -d "\n" | pbcopy) | cat'
 alias grr='grep -I -r --exclude-dir=_bak --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=site-packages'
 alias ta='tmux attach'
 alias dev='tmux new -s dev'
 alias wordle="curl -s https://raw.githubusercontent.com/tabatkins/wordle-list/main/words"
 alias to-lower='tr "[:upper:]" "[:lower:]"'
-    
+alias la="ls -l -a"
+
+git config --global alias.st status
+git config --global alias.p-all "pull --all --prune"
+
