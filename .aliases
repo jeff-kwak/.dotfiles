@@ -13,6 +13,7 @@ alias dev='tmux new -s dev'
 alias wordle="curl -s https://raw.githubusercontent.com/tabatkins/wordle-list/main/words"
 alias to-lower='tr "[:upper:]" "[:lower:]"'
 alias la="ls -l -a"
+alias g=git
 
 git config --global alias.st status
 git config --global alias.p-all "pull --all --prune"
